@@ -12,13 +12,13 @@ export const Container = styled.div`
   padding: 20px 0px;
   gap: 10px;
 
-  @media (max-width: 750px){
+  @media (max-width: 780px){
     display: grid;
   }
 `;
 
 export const InputContent = styled.div`
-    display: flex;
+    display: grid;
     flex-direction: column;
 `;
 

@@ -12,13 +12,13 @@ export const Container = styled.div`
   width: 25%;
 
   @media (max-width: 750px){
-    width: 20%;
+    width: 50%;
 
     p{
-      font-size: 12px;
+      font-size: 10px;
     }
     span{
-      font-size: 20px;
+      font-size: 15px;
     }
     svg{
       display: none;
