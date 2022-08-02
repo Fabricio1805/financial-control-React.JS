@@ -30,9 +30,24 @@ function App() {
     
     const total = Math.abs(income - expense).toFixed(2);
 
-    setIncome(`R$ ${income}`);
-    setExpense(`R$ ${expense}`);
-    setTotal(`${Number(income) < Number(expense) ? "-" : ""}R$ ${total}`);
+    // formatação dos valores
+    const formatCurrency = (value) => {
+      const signal = Number(value) < 0 ? "-":""
+
+      value = String(value).replace(/\D/g, "")
+      value = Number(value) / 100 
+
+      value = value.toLocaleString("pt-BR",{
+          style: "currency",
+          currency: "BRL"
+      })
+      return signal + value
+    }
+
+    setIncome(formatCurrency(income));
+    setExpense(formatCurrency(expense));
+    const totalizador = (`${Number(income) < Number(expense) ? "-" : ""}R$ ${total}`);
+    setTotal(formatCurrency(totalizador))
   },[transactionsList]);
 
   const handleAdd = (transaction) => {
@@ -43,11 +58,17 @@ function App() {
     localStorage.setItem("transactions", JSON.stringify(newArrayTransactions));
 
   }
+
   return (
     <>
+      
         <Header/> 
-          <Resume income={income} expense={expense} total={total}/> 
-          <Form handleAdd={handleAdd} transactionsList={transactionsList} setTransactionsList={setTransactionsList}/>
+          <Resume income={income} expense={expense} total={total} /> 
+            <Form 
+              handleAdd={handleAdd} 
+              transactionsList={transactionsList} 
+              setTransactionsList={setTransactionsList}
+            />
         <GlobalStyle /> 
     </>
   );

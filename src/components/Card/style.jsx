@@ -42,11 +42,10 @@ export const Header = styled.header`
   }
 `;
 
-export const HeaderTitle = styled.p`
+export const HeaderTitle = styled.h2`
   font-size: 20px;
 `;
 
 export const Total = styled.span`
   font-size: 30px;
-  font-weight: bold;
 `;

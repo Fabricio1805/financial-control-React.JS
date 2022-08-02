@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
-  width: 98%;
+  width: 76%;
   background-color: #FFF;
   padding: 20px;
   box-shadow: 0px 0px 5px #CCC;
   border-radius: 5px;
   max-width: 1120px;
   margin: 20px auto;
+ 
 `;
 
 export const Thead = styled.thead``;
@@ -21,4 +22,5 @@ export const Th = styled.th`
     padding-bottom: 5px;
     text-align: ${(props) => (props.alignCenter ? "center" : "start")};
     width: ${(props) => (props.width ? props.width + "%" : "auto")};
+    color: #363f53;
 `;
