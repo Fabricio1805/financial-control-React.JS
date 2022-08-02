@@ -25,11 +25,18 @@ const GridItem = ({item, onDelete}) => {
     }
     var total = parseInt(item.amount).toFixed(2);
     
-
+    //{Utils.formatCurrency(total)}
     return (
         <C.Tr>
             <C.Td>{item.desc}</C.Td>
-            <C.Td>{Utils.formatCurrency(total)}</C.Td>
+            <C.Td >
+                {item.expense ? (
+                    <p style={{color: "#e92929"}}>{Utils.formatCurrency(total)}</p>
+                    
+                ) : (
+                    <p style={{color: "#12a454"}}>{Utils.formatCurrency(total)}</p>
+                )}
+            </C.Td>
             <C.Td>{item.date}</C.Td>
             <C.Td alignCenter>
                 {item.expense ? (
